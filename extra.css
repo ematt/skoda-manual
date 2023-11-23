@@ -1,0 +1,84 @@
+.toc-label {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.toc-section {
+    margin-left: 1em;
+}
+
+.section .section-label {
+    font-size: 200%;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    border-top: 1px solid #d3d3d3;
+}
+
+.section .section .section-label {
+    font-size: 200%;
+}
+
+.section .section .section .section-label {
+    font-size: 150%;
+}
+
+img[data-role="symbol"], img[data-role="icon"] {
+    margin-bottom: 0 !important;
+    vertical-align: middle;
+    max-height: unset !important;
+    max-width: 2rem;
+}
+
+img[data-role="safety-alert-symbol"] {
+    margin-bottom: 0 !important;
+    max-height: unset !important;
+    max-width: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 100%;
+    margin: 0;
+
+width: auto !important;
+  height: 19px !important;
+  margin-bottom: 0 !important;
+
+  text-align: left;
+}
+
+p[data-role="signalword"] {
+    display: inline-block !important;
+}
+
+div.topic-content dl {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+dl > div[data-dl-wrapper="dli"] {
+    display: table-row;
+}
+
+dd, dt {
+    display: table-cell !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+dt[data-type="legenden-punkt"], dt[data-type="term"] {
+    width: 4rem;
+}
+
+div[data-type="qr-code-block"][data-role="list-container"] dl div[data-dl-wrapper="dli"][data-dl-break-before="avoid"] dt {
+  width: min-content !important;
+  padding-right: 1rem !important;
+}
+
+div[data-role="list-container"][data-class="vw-table-of-symbols"][data-type="symbol-verzeichnis"] > dl div[data-dl-wrapper="dli"] dt {
+  width: 5rem;
+  text-align: center;
+}
