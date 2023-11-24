@@ -1,16 +1,13 @@
 #!/bin/bash
 set -e
 
-# if [ ! -e "style.css" ]; then
-#     curl 'https://digital-manual.skoda-auto.com/resources/tenants/default/resources/style.css?t=20231123131356' > style.css
-# fi
-# if [ ! -e "print.css" ]; then
-#     curl 'https://digital-manual.skoda-auto.com/resources/tenants/default/resources/print.css' > print.css
-# fi
-
-MANUAL=a2f0321d91cc34bfac1445252fd5b3f4_3_en_GB
+MANUAL=${1:-a2f0321d91cc34bfac1445252fd5b3f4_3_en_GB}
 REFERER="https://digital-manual.skoda-auto.com/w/en_GB/show/${MANUAL}?ct=${MANUAL}"
-COOKIES='cb-enabled=enabled; dtCookie==3=sn=1C6023C0EECB0A9AC5E8BCBF92D339D3=perc=100000=ol=0=mul=1; JSESSIONID=E4C1AF5D111CE640297BA49F112DB197; BIGipServerP_SMBSTAP.app~P_SMBSTAP_pool=!Uo/Jgk56D8UqeZIB0gnUc0mGjTntSu6c/biTztu+eehZFiTO3xvoMPe9moCXYiTOvXADg2OocQtmtdY=; TS01e91aa3=01b06b1fecb9ecae834f24774d2e01e0623ab47a78fc45d7c2ae19742987f31237ce67358a54b2090b614cb660627eed92fb7076702aa95ce02a00f9a1be859f71f7e7ceeeaef70ce033cbb938487a4153359eb226'
+
+if [ -z "$COOKIES" ]; then
+    >&2 echo "We need certain cookies in order to retrieve the manual. Please navigate to the manual "
+fi
+
 
 mkdir -p images
 
@@ -33,7 +30,7 @@ function handleSection() {
     if [ -n "$LINK" ]; then
         ID="$LINK"
     else
-        ID=$(echo "$LINK" | base64)
+        ID=$(echo "$LABEL" | base64)
     fi
 
     echo "<div class='section' id='${ID}'>"
@@ -73,7 +70,7 @@ function handleToc() {
     if [ -n "$LINK" ]; then
         ID="$LINK"
     else
-        ID=$(echo "$LINK" | base64)
+        ID=$(echo "$LABEL" | base64)
     fi
 
     echo "<div class='toc-section'>"
