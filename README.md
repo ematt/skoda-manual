@@ -40,7 +40,7 @@ curl 'https://digital-manual.skoda-auto.com/w/en_GB/show/599333bff3ba55cbac14452
 - Start a `bash` shell in this repository, and write (replacing where appropriate):
 ```bash
 export COOKIES='PASTE-YOUR-COOKIES-HERE'
-./skoda.sh PASTE-YOUR-MANUAL-ID-HERE >manual.html
+./skoda.sh PASTE-YOUR-MANUAL-ID-HERE LANGUAGE >manual.html
 ```
 - This should create a `manual.html` file with your result, writing some progress info to `stderr`. Images are saved in the `images/` directory that's automatically created.
 - If desired, you can convert the result to PDF or EPUB using Calibre's tools:
